@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinkPhloyd - Музыкальный плеер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <header class="header">
+            <h1>🎵 PinkPhloyd</h1>
+            <p class="subtitle">Ваш личный музыкальный плеер</p>
+        </header>
+
+        
+        <section class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="Поиск песен, исполнителей..."
+            >
+            <button id="searchBtn" class="search-btn">Поиск песен</button>
+            <button id="searchAlbumsBtn" class="search-btn search-btn-secondary">Поиск альбомов</button>
+        </section>
+
+        
+        <section class="tabs">
+            <button id="songsTab" class="tab-btn active">🎵 Песни</button>
+            <button id="albumsTab" class="tab-btn">💿 Альбомы</button>
+        </section>
+
+        
+        <section class="now-playing">
+            <div class="album-cover">
+                <img id="albumCover" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%23333' width='300' height='300'/%3E%3C/svg%3E" alt="Album Cover">
+            </div>
+            <div class="song-info">
+                <h2 id="songTitle">Выберите песню</h2>
+                <p id="artistName">Исполнитель</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                    <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="controls">
+            <button id="prevBtn" class="control-btn">⏮️ Назад</button>
+            <button id="playBtn" class="control-btn play-btn">▶️ Играть</button>
+            <button id="nextBtn" class="control-btn">Вперед ⏭️</button>
+        </section>
+
+        
+        <section class="playlist-section" id="playlistSection">
+            <h3>Плейлист</h3>
+            <div id="playlist" class="playlist">
+                <p class="loading">Загрузка песен...</p>
+            </div>
+        </section>
+
+        
+        <section class="albums-section" id="albumsSection" style="display: none;">
+            <h3>Альбомы</h3>
+            <div id="albumsList" class="albums-list">
+                <p class="loading">Загрузка альбомов...</p>
+            </div>
+        </section>
+
+        
+        <section class="album-details-section" id="albumDetailsSection" style="display: none;">
+            <button id="backToAlbumsBtn" class="back-btn">← Вернуться к альбомам</button>
+            <div id="albumDetailsContainer" class="album-details-container"></div>
+        </section>
+
+        
+        <section class="recently-played">
+            <h3>Недавно слушали</h3>
+            <div id="recentlyPlayed" class="recently-played-list">
+                <p class="empty">История слушания пуста</p>
+            </div>
+        </section>
+    </div>
+
+    
+    <audio id="audioPlayer"></audio>
+
+    <script src="api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
